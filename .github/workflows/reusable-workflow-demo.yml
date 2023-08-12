@@ -1,0 +1,12 @@
+name: Reusable Workflow Demo
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: workflow_call
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - uses: ./.github/actions/setup
+      - uses: ./.github/actions/list_files
+      - run: echo "🍏 This job's status is ${{ job.status }}."

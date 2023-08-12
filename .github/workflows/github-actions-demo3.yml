@@ -1,0 +1,14 @@
+name: GitHub Actions Demo 3
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [pullrequest]
+jobs:
+  Call-Reusable-Workflow-Demo:
+    uses: ./.github/workflows/reusable-workflow-demo.yml
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
+      - uses: ./.github/actions/setup
+      - uses: ./.github/actions/list_files
+      - run: echo "🍏 This job's status is ${{ job.status }}."

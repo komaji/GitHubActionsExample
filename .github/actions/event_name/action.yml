@@ -1,0 +1,6 @@
+name: Echo event name
+runs:
+  using: composite
+  steps:
+    - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      shell: bash

@@ -1,0 +1,7 @@
+name: List files in the repository
+runs:
+  using: composite
+  steps:
+    - run: |
+        ls ${{ github.workspace }}
+      shell: bash

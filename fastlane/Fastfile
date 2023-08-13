@@ -19,7 +19,9 @@ platform :ios do
   lane :test do
     run_tests(
       devices: ["iPhone 14 Pro"],
-      scheme: "GitHubActionsExample"
+      scheme: "GitHubActionsExample",
+      result_bundle: true,
+      output_directory: "TestResults"
     )
   end
 

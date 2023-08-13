@@ -16,3 +16,7 @@ jobs:
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
       - name: Run tests
         run: bundle exec fastlane test
+      - uses: kishikawakatsumi/xcresulttool@v1
+        with:
+          path: TestResults/GitHubActionsExample.xcresult
+        if: success() || failure()

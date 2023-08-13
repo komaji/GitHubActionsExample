@@ -4,6 +4,8 @@ on: [push]
 jobs:
   UnitTests:
     runs-on: macos-latest
+    permissions:
+      checks: write
     steps:
       - uses: actions/checkout@v3
       - name: Set up Ruby

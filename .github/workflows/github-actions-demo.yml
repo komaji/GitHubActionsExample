@@ -14,6 +14,8 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           path: |
+            results/result1.txt
+            results/result2/result2.txt
             result3.txt
             result4.txt
       - run: echo "🍏 This job's status is ${{ job.status }}."

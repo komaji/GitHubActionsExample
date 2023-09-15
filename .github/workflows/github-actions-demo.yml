@@ -20,3 +20,5 @@ jobs:
             result4.txt
       - run: echo "🍏 This job's status is ${{ job.status }}."
       - run: echo "testtesttest"
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v3

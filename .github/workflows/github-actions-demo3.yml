@@ -5,7 +5,7 @@ jobs:
   Call-Reusable-Workflow-Demo:
     uses: ./.github/workflows/reusable-workflow-demo.yml
   Explore-GitHub-Actions:
-    if: ${{ !contains('release/', github.head_ref) }}
+    if: ${{ !contains(github.head_ref, 'release/') }}
     runs-on: ubuntu-latest
     steps:
       - run: echo "github.head_ref ${{ github.head_ref }}."

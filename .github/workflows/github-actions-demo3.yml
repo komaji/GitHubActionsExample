@@ -5,6 +5,7 @@ jobs:
   Call-Reusable-Workflow-Demo:
     uses: ./.github/workflows/reusable-workflow-demo.yml
   Explore-GitHub-Actions:
+    if: ${{ !contains('release/', github.head_ref) }}
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code

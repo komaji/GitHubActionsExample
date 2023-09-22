@@ -8,6 +8,8 @@ jobs:
     if: ${{ !contains('release/', github.head_ref) }}
     runs-on: ubuntu-latest
     steps:
+      - run: echo "github.head_ref ${{ github.head_ref }}."
+      - run: echo "contains 'release/' ${{ !contains('release/', github.head_ref) }}"
       - name: Check out repository code
         uses: actions/checkout@v3
       - uses: ./.github/actions/setup

@@ -12,3 +12,6 @@ jobs:
       - uses: ./.github/actions/setup
       - uses: ./.github/actions/list_files
       - run: echo "🍏 This job's status is ${{ job.status }}."
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true

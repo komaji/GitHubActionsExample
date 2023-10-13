@@ -4,6 +4,39 @@ on:
   push:
   workflow_dispatch:
 jobs:
+  upload:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: ./test
+    steps:
+      - uses: actions/checkout@v4
+      - run: cp test.txt hello.txt
+      - run: zip hello.txt.zip hello.txt
+      - uses: actions/upload-artifact@v3
+        with:
+          name: hello.txt
+          path: ./test/hello.txt.zip
+
+  download:
+    runs-on: ubuntu-latest
+    env:
+      WORKING_DIRECTORY: ./test
+    defaults:
+      run:
+        shell: bash
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+    needs: upload
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v3
+        with:
+          name: hello.txt
+          path: ${{ env.WORKING_DIRECTORY }}
+      - run: unzip -oq hello.txt
+      - run: cat hello.txt
+
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
